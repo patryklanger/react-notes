@@ -50,6 +50,9 @@ export const logoutUser = () => {
     });
     try {
       await logout();
+      dispatch({
+        type: ActionType.LOGOUT_USER_SUCCESS,
+      });
     } catch (error: any) {
       dispatch({
         type: ActionType.LOGOUT_USER_ERROR,

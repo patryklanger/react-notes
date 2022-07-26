@@ -2,8 +2,8 @@ import { Dispatch } from 'redux';
 import { addNoteDb, deleteNoteDb, getNotesDb } from '../../services/firebase';
 import { NotesActionType as ActionType } from '../action-types';
 import { NotesAction as Action } from '../actions';
-import { Note } from './../../models/Note';
-import { editNoteDb } from './../../services/firebase';
+import { Note } from '../../models/Note.model';
+import { editNoteDb } from '../../services/firebase';
 
 export const addNote = (title: string, content: string) => {
   return async (dispatch: Dispatch<Action>) => {

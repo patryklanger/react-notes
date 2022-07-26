@@ -2,7 +2,7 @@ import { useForm } from 'react-hook-form';
 import { useAuthAction } from '../hooks/useActions';
 import { useProtectedRoute } from './../hooks/useProtectedRoute';
 import { useSelector } from './../hooks/useSelector';
-import { selectAuthState } from './../state/selectors/authSelectors';
+import { selectors } from '../state';
 
 type FormValues = {
   email: string;
@@ -12,7 +12,7 @@ type FormValues = {
 
 const SignUp: React.FC = () => {
   const { createUser } = useAuthAction();
-  const { error } = useSelector(selectAuthState);
+  const { error } = useSelector(selectors.authSelectors.selectAuthState);
 
   useProtectedRoute();
 

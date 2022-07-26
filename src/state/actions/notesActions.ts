@@ -1,4 +1,4 @@
-import { Note } from '../../models/Note';
+import { Note } from '../../models/Note.model';
 import { NotesActionType as ActionType } from '../action-types';
 
 interface AddNoteAction {

@@ -1,8 +1,8 @@
-import { FormEvent, useState } from 'react';
+import { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { useSelector } from 'react-redux';
-import { selectNoteState } from '../state/selectors/noteSelectors';
 import { useNavigate } from 'react-router-dom';
+import { selectors } from '../state';
 
 interface NoteFormProps {
   id?: string;
@@ -34,7 +34,7 @@ const NoteForm: React.FC<NoteFormProps> = (props: NoteFormProps) => {
     },
   });
 
-  const { loading } = useSelector(selectNoteState);
+  const { loading } = useSelector(selectors.noteSelectors.selectNoteState);
   const onSubmit = (data: FormValues) => {
     if (!props.id) {
       props.onSubmit(data.title, data.content);

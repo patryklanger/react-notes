@@ -1,7 +1,7 @@
 import { Dispatch } from 'redux';
 import { AuthAction as Action } from '../actions';
 import { AuthActionType as ActionType } from '../action-types';
-import { getCurrentUser, login, logout, signUp } from './../../services/auth';
+import { getCurrentUser, login, logout, signUp } from '../../services/auth';
 
 export const createUser = (email: string, password: string) => {
   return async (dispatch: Dispatch<Action>) => {

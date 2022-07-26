@@ -1,4 +1,4 @@
-import { Note } from '../models/Note';
+import { Note } from '../models/Note.model';
 import { useNotesActions } from './../hooks/useActions';
 import { useNavigate } from 'react-router-dom';
 

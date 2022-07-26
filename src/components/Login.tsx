@@ -2,9 +2,9 @@ import React, { useEffect } from 'react';
 import { useForm } from 'react-hook-form';
 import { useAuthAction } from '../hooks/useActions';
 import { useSelector } from './../hooks/useSelector';
-import { selectAuthState } from './../state/selectors/authSelectors';
 import { useNavigate } from 'react-router-dom';
 import { useProtectedRoute } from './../hooks/useProtectedRoute';
+import { selectors } from '../state';
 
 type FormValues = {
   email: string;
@@ -13,10 +13,9 @@ type FormValues = {
 
 const Login = () => {
   const { loginUser } = useAuthAction();
-
   const navigate = useNavigate();
 
-  const { user } = useSelector(selectAuthState);
+  const { user } = useSelector(selectors.authSelectors.selectAuthState);
   useProtectedRoute();
   useEffect(() => {
     if (user) {

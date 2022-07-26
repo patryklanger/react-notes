@@ -1,4 +1,4 @@
-import User from '../../models/User';
+import User from '../../models/User.model';
 import { AuthAction as Action } from '../actions';
 import { AuthActionType as ActionType } from '../action-types';
 

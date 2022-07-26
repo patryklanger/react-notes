@@ -9,10 +9,10 @@ import {
   updateDoc,
   doc,
 } from '@firebase/firestore';
-import { Note } from '../models/Note';
+import { Note } from '../models/Note.model';
 
 const app = initializeApp(firebaseConfig);
-export const db = getFirestore(app);
+const db = getFirestore(app);
 const collectionRef = collection(db, collectionName);
 
 export const addNoteDb = async (note: Note): Promise<string> => {

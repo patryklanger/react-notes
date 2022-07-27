@@ -36,11 +36,7 @@ export const getNotesDb = async (): Promise<Note[]> => {
 };
 
 export const deleteNoteDb = async (id: string): Promise<void> => {
-  try {
-    await deleteDoc(doc(collectionRef, id));
-  } catch (error: any) {
-    throw new Error(error.message);
-  }
+  await deleteDoc(doc(collectionRef, id));
 };
 
 export const editNoteDb = async (

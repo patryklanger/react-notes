@@ -1,16 +1,27 @@
 import { Note } from '../models/Note.model';
 import { useNotesActions } from './../hooks/useActions';
 import { useNavigate } from 'react-router-dom';
+import { Notes } from '../repository';
+import { useContext, useState } from 'react';
+import { InfoContext } from './NoteList';
 
 const NoteComponent: React.FC<{ note: Note }> = (props: { note: Note }) => {
   const navigate = useNavigate();
   const note: Note = props.note;
   const editParams = new URLSearchParams();
   if (note.id) editParams.append('id', note.id);
-  const { deleteNote } = useNotesActions();
 
-  const onClick = () => {
-    if (note.id) deleteNote(note.id);
+  const { setLoading, setError } = useContext(InfoContext);
+
+  const onClick = async () => {
+    if (!note.id) return;
+    setLoading(true);
+    try {
+      await Notes.deleteNote(note.id);
+    } catch (error: any) {
+      setError(error.message);
+    }
+    setLoading(false);
   };
 
   return (
